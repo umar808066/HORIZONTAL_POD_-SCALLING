@@ -11,9 +11,9 @@ spec:
         type: RollingUpdate
     template:
           metadata: 
-                name: mytodo 
+                name: deploymenthpa 
                 labels:
-                      app: mytodo
+                      app: deploymenthpa
           spec:
               containers:
                   - name: deploymenthpa
