@@ -30,7 +30,7 @@ spec:
                           containerPort: 80
                           protocol: TCP     
     selector:
-      matchlabels:
+      matchLabels:
               app: deploymenthpa
 ---
 
