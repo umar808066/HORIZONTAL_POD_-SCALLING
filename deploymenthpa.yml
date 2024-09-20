@@ -20,11 +20,11 @@ spec:
                     image: ubuntu:latest
                     resources:
                         requests:
-                            cpu: "50m"
-                            memory: "100Mi"
+                            cpu: "25m"
+                            memory: "50Mi"
                         limits:
-                           cpu: "100m"
-                           memory: "200Mi"    
+                           cpu: "50m"
+                           memory: "100Mi"    
                     ports:
                         - name: http
                           containerPort: 80
