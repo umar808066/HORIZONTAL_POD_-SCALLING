@@ -33,13 +33,12 @@ spec:
       matchLabels:
               app: deploymenthpa
 ---
-
 apiVersion: autoscaling/v2
 kind:  HorizontalPodAutoscaler
 metadata:
-       name: deploymenthpa
+       name: hpa1
        labels: 
-           app: deploymenthpa
+           app: hpa1
 spec:
     scaleTargetRef:
       apiVersion: apps/v1
