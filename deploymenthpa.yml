@@ -4,7 +4,6 @@ metadata:
         name: deploymenthpa
         labels:
              app: deploymenthpa
-
 spec: 
     replicas: 1
     strategy: 
