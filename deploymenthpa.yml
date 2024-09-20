@@ -13,7 +13,7 @@ spec:
           metadata: 
                 name: deploymenthpa 
                 labels:
-                      app: deploymenthpa
+                    app: deploymenthpa
           spec:
               containers:
                   - name: deploymenthpa
