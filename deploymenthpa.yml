@@ -15,7 +15,7 @@ spec:
                     app: deploymentapp
           spec:
               containers:
-                  - name: deploymentapp
+                  - name: http
                     image: ubuntu:latest
                     resources:
                         requests:
