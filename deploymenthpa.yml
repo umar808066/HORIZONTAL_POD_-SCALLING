@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
         name: deploymenthpa
         labels:
-             app: deploymenthpa
+             app: deploymentapp
 spec: 
     replicas: 1
     strategy: 
         type: RollingUpdate
     template:
           metadata: 
-                name: deploymenthpa 
+                name: deploymentapp 
                 labels:
-                    app: deploymenthpa
+                    app: deploymentapp
           spec:
               containers:
-                  - name: deploymenthpa
+                  - name: deploymentapp
                     image: ubuntu:latest
                     resources:
                         requests:
@@ -30,7 +30,7 @@ spec:
                           protocol: TCP     
     selector:
       matchLabels:
-              app: deploymenthpa
+              app: deploymentapp
 ---
 apiVersion: autoscaling/v2
 kind:  HorizontalPodAutoscaler
