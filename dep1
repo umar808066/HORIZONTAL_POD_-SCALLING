@@ -1,56 +1,53 @@
 apiVersion: apps/v1
-kind:   Deployment
+kind: Deployment
 metadata: 
-      name:  deploymenthpa 
-      labels: 
-            app: deploymenthpa 
-spec:
-    replicas: 1   
-    strategy: 
-        type: RollingUpdate
-    template:
-          metadata: 
-                name: deploymenthpa  
-                labels:
-                      app: deploymenthpa 
-          spec:
-              containers:
-                  - name: http
-                    image: ubuntu:latest
-                    resources: 
-                        requests:    
-                          cpu: "25m"
-                          memory: "50Mi"
-                        limits:      
-                          cpu: "50m"
-                          memory: "100Mi"    
-                    ports:
-                        - name: http
-                          containerPort: 80
-                          protocol: TCP      
-    selector:
-        matchLabels:
-            app: deploymenthpa 
+  name: todohpa
+  labels:
+    app: todohpa
+spec: 
+  replicas: 1
+  strategy: 
+    type: RollingUpdate
+  selector:  
+    matchLabels:
+      app: todohpa
+  template:
+    metadata: 
+      labels:
+        app: todohpa          
+    spec: 
+      containers: 
+        - name: todo-container
+          image: umar7867/todoapp:latest
+          resources: 
+            requests:
+              cpu: "25m"
+              memory: "50Mi"
+            limits:
+              cpu: "50m"
+              memory: "100Mi"
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP                      
 ---
-apiVersion:  autoscaling/v2
-kind:  HorizontalPodAutoscaler
-metadata:  
-    name: hpa1 
-    labels:
-        app: hpa1
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata: 
+  name: todohpa
+  labels:
+    app: todohpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
-    kind: Deployment
-    name: deploymenthpa
-  minReplicas: 1  
-  maxReplicas: 2  
-  metrics:  
-  - type: Resource
-    resource:
-      name: cpu  
-      target:
-        type: Utilization   
-        averageUtilization: 50  
-        
- 
+    kind: Deployment 
+    name: todohpa
+  minReplicas: 1
+  maxReplicas: 2
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
