@@ -17,7 +17,7 @@ spec:
         app: todohpa          
     spec: 
       containers: 
-        - name: todohpa
+        - name: todo
           image: umar7867/todoapp:latest
           resources: 
             requests:
