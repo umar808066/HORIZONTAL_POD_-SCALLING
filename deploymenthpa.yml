@@ -16,7 +16,7 @@ spec:
           spec:
               containers:
                   - name: http
-                    image: ubuntu
+                    image: nginx:latest
                     resources:
                         requests:
                             cpu: "25m"
