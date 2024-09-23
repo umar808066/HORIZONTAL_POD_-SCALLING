@@ -16,7 +16,7 @@ spec:
           spec:
               containers:
                   - name: http
-                    image: ubuntu:latest
+                    image: ubuntu
                     resources:
                         requests:
                             cpu: "25m"
